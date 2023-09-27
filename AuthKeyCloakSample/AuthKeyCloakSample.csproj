@@ -9,5 +9,6 @@
     <PackageReference Include="Keycloak.AuthServices.Authentication" Version="1.5.2" />
     <PackageReference Include="Keycloak.AuthServices.Authorization" Version="1.5.2" />
     <PackageReference Include="Refit.HttpClientFactory" Version="7.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 </Project>

@@ -1,3 +1,5 @@
+using Microsoft.Net.Http.Headers;
+using Microsoft.OpenApi.Models;
 using Keycloak.AuthServices.Authentication;
 using Keycloak.AuthServices.Authorization;
 using Keycloak.AuthServices.Sdk.Admin;
@@ -30,11 +32,65 @@ builder.Services.AddKeycloakAuthorization(
 builder.Services.AddKeycloakAdminHttpClient(
 	adminClientOptions ?? throw new ArgumentNullException(nameof(adminClientOptions)));
 
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddSwaggerGen(options =>
+{
+	options.SwaggerDoc("v1", new OpenApiInfo()
+	{
+		Version = "v1",
+		Title = "Auth With Keycloak Sample - API"
+	});
+
+	options.AddSecurityDefinition(
+	"oauth",
+	new OpenApiSecurityScheme
+	{
+		Flows = new OpenApiOAuthFlows
+		{
+			ClientCredentials = new OpenApiOAuthFlow
+			{
+				Scopes = new Dictionary<string, string>
+				{
+					["api"] = "api scope description"
+				},
+				TokenUrl = new Uri("http://localhost:9090/realms/realm-sample/protocol/openid-connect/token"),
+			},
+		},
+		In = ParameterLocation.Header,
+		Name = HeaderNames.Authorization,
+		Type = SecuritySchemeType.OAuth2
+	}
+);
+	options.AddSecurityRequirement(
+		new OpenApiSecurityRequirement
+		{
+					{
+						new OpenApiSecurityScheme
+						{
+							Reference = new OpenApiReference
+								{ Type = ReferenceType.SecurityScheme, Id = "oauth" },
+						},
+						new[] { "api" }
+					}
+		}
+	);
+});
+
 var app = builder.Build();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapGet("/", () => "Hello World!").RequireAuthorization();
+app.UseSwagger();
+app.UseSwaggerUI(options =>
+{
+	options.RoutePrefix = string.Empty;
+	options.SwaggerEndpoint("/swagger/v1/swagger.json", "Version 1.0");
+});
+
+app.MapGet("/hello-world", () => "Hello World!");
+
+app.MapGet("/hello-world-auth", () => "Hello World!").RequireAuthorization();
 
 app.Run();

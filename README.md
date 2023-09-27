@@ -16,3 +16,4 @@
 * dotnet add package Keycloak.AuthServices.Authentication
 * dotnet add package Keycloak.AuthServices.Authorization
 * dotnet add package Refit.HttpClientFactory
+* dotnet add package Swashbuckle.AspNetCore
