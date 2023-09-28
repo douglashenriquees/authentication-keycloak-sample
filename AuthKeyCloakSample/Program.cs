@@ -21,8 +21,6 @@ var adminClientOptions = builder
 	.GetSection(KeycloakAdminClientOptions.Section)
 	.Get<KeycloakAdminClientOptions>();
 
-builder.Services.AddAuthorization();
-
 builder.Services.AddKeycloakAuthentication(
 	authenticationOptions ?? throw new ArgumentNullException(nameof(authenticationOptions)));
 
@@ -34,6 +32,8 @@ builder.Services.AddKeycloakAdminHttpClient(
 
 builder.Services.AddEndpointsApiExplorer();
 
+builder.Services.AddAuthorization();
+
 builder.Services.AddSwaggerGen(options =>
 {
 	options.SwaggerDoc("v1", new OpenApiInfo()
@@ -42,47 +42,50 @@ builder.Services.AddSwaggerGen(options =>
 		Title = "Auth With Keycloak Sample - API"
 	});
 
-	options.AddSecurityDefinition(
-	"oauth",
-	new OpenApiSecurityScheme
+	options.AddSecurityDefinition("oauth", new OpenApiSecurityScheme()
 	{
-		Flows = new OpenApiOAuthFlows
+		Flows = new OpenApiOAuthFlows()
 		{
-			ClientCredentials = new OpenApiOAuthFlow
+			Password = new OpenApiOAuthFlow()
 			{
-				Scopes = new Dictionary<string, string>
+				Scopes = new Dictionary<string, string>()
 				{
 					["api"] = "api scope description"
 				},
+
 				TokenUrl = new Uri("http://localhost:9090/realms/realm-sample/protocol/openid-connect/token"),
-			},
+			}
 		},
 		In = ParameterLocation.Header,
 		Name = HeaderNames.Authorization,
 		Type = SecuritySchemeType.OAuth2
-	}
-);
-	options.AddSecurityRequirement(
-		new OpenApiSecurityRequirement
+	});
+
+	options.AddSecurityRequirement(new OpenApiSecurityRequirement()
+	{
 		{
-					{
-						new OpenApiSecurityScheme
-						{
-							Reference = new OpenApiReference
-								{ Type = ReferenceType.SecurityScheme, Id = "oauth" },
-						},
-						new[] { "api" }
-					}
+			new OpenApiSecurityScheme()
+			{
+				Reference = new OpenApiReference()
+				{
+					Type = ReferenceType.SecurityScheme,
+					Id = "oauth"
+				},
+			},
+
+			new[] { "api" }
 		}
-	);
+	});
 });
 
 var app = builder.Build();
 
 app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.UseSwagger();
+
 app.UseSwaggerUI(options =>
 {
 	options.RoutePrefix = string.Empty;

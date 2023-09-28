@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "0c130c79-8d40-4f91-a456-62852eb2b112",
+    "_postman_id": "690b03c6-7bd6-4b60-8bfe-e6f9a531e505",
     "name": "keycloak-sample",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
@@ -161,7 +161,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:9090/admin/realms/realm-sample/clients/a36d7425-23bc-44cb-9c79-f000506fd47d",
+          "raw": "http://localhost:9090/admin/realms/realm-sample/clients/78599a04-eace-496e-b44a-1b8f3e0d1443",
           "protocol": "http",
           "host": [
             "localhost"
@@ -172,7 +172,39 @@
             "realms",
             "realm-sample",
             "clients",
-            "a36d7425-23bc-44cb-9c79-f000506fd47d"
+            "78599a04-eace-496e-b44a-1b8f3e0d1443"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "realm-sample-client",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"protocol\": \"openid-connect\",\r\n    \"clientId\": \"client-sample-api\",\r\n    \"name\": \"\",\r\n    \"description\": \"\",\r\n    \"webOrigins\": [\r\n        \"/*\",\r\n        \"http://localhost:5203\"\r\n    ],\r\n    \"publicClient\": false,\r\n    \"authorizationServicesEnabled\": false,\r\n    \"serviceAccountsEnabled\": false,\r\n    \"implicitFlowEnabled\": false,\r\n    \"directAccessGrantsEnabled\": true,\r\n    \"standardFlowEnabled\": true,\r\n    \"frontchannelLogout\": true,\r\n    \"attributes\": {\r\n        \"saml_idp_initiated_sso_url_name\": \"\",\r\n        \"oauth2.device.authorization.grant.enabled\": false,\r\n        \"oidc.ciba.grant.enabled\": false\r\n    },\r\n    \"alwaysDisplayInConsole\": false,\r\n    \"rootUrl\": \"\",\r\n    \"baseUrl\": \"\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9090/admin/realms/realm-sample/clients/78599a04-eace-496e-b44a-1b8f3e0d1443",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "admin",
+            "realms",
+            "realm-sample",
+            "clients",
+            "78599a04-eace-496e-b44a-1b8f3e0d1443"
           ]
         }
       },
@@ -195,7 +227,7 @@
           "raw": "{\n    \"protocol\": \"openid-connect\",\n    \"protocolMapper\": \"oidc-audience-mapper\",\n    \"name\": \"realm-sample-client-scope-mapper\",\n    \"config\": {\n        \"included.client.audience\": \"\",\n        \"included.custom.audience\": \"\",\n        \"id.token.claim\": \"false\",\n        \"access.token.claim\": \"true\"\n    }\n}"
         },
         "url": {
-          "raw": "http://localhost:9090/admin/realms/realm-sample/clients/a36d7425-23bc-44cb-9c79-f000506fd47d/protocol-mappers/models",
+          "raw": "http://localhost:9090/admin/realms/realm-sample/clients/78599a04-eace-496e-b44a-1b8f3e0d1443/protocol-mappers/models",
           "protocol": "http",
           "host": [
             "localhost"
@@ -206,7 +238,7 @@
             "realms",
             "realm-sample",
             "clients",
-            "a36d7425-23bc-44cb-9c79-f000506fd47d",
+            "78599a04-eace-496e-b44a-1b8f3e0d1443",
             "protocol-mappers",
             "models"
           ]
@@ -221,7 +253,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:9090/admin/realms/realm-sample/clients/a36d7425-23bc-44cb-9c79-f000506fd47d/protocol-mappers/models",
+          "raw": "http://localhost:9090/admin/realms/realm-sample/clients/78599a04-eace-496e-b44a-1b8f3e0d1443/protocol-mappers/models",
           "protocol": "http",
           "host": [
             "localhost"
@@ -232,7 +264,7 @@
             "realms",
             "realm-sample",
             "clients",
-            "a36d7425-23bc-44cb-9c79-f000506fd47d",
+            "78599a04-eace-496e-b44a-1b8f3e0d1443",
             "protocol-mappers",
             "models"
           ]
@@ -247,7 +279,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n  \"id\": \"eaa9026d-eb5b-416e-9e3b-6931b3b7b593\",\r\n  \"protocol\": \"openid-connect\",\r\n  \"protocolMapper\": \"oidc-audience-mapper\",\r\n  \"name\": \"realm-sample-client-scope-mapper\",\r\n  \"config\": {\r\n    \"included.client.audience\": \"client-sample-api\",\r\n    \"included.custom.audience\": \"\",\r\n    \"id.token.claim\": \"false\",\r\n    \"access.token.claim\": \"true\"\r\n  },\r\n  \"consentRequired\": false\r\n}",
+          "raw": "{\r\n  \"id\": \"28e81c1a-1e17-4964-ba8b-f4604f224ad7\",\r\n  \"protocol\": \"openid-connect\",\r\n  \"protocolMapper\": \"oidc-audience-mapper\",\r\n  \"name\": \"realm-sample-client-scope-mapper\",\r\n  \"config\": {\r\n    \"included.client.audience\": \"client-sample-api\",\r\n    \"included.custom.audience\": \"\",\r\n    \"id.token.claim\": \"false\",\r\n    \"access.token.claim\": \"true\"\r\n  },\r\n  \"consentRequired\": false\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -255,7 +287,7 @@
           }
         },
         "url": {
-          "raw": "http://localhost:9090/admin/realms/realm-sample/clients/a36d7425-23bc-44cb-9c79-f000506fd47d/protocol-mappers/models/eaa9026d-eb5b-416e-9e3b-6931b3b7b593",
+          "raw": "http://localhost:9090/admin/realms/realm-sample/clients/78599a04-eace-496e-b44a-1b8f3e0d1443/protocol-mappers/models/28e81c1a-1e17-4964-ba8b-f4604f224ad7",
           "protocol": "http",
           "host": [
             "localhost"
@@ -266,10 +298,10 @@
             "realms",
             "realm-sample",
             "clients",
-            "a36d7425-23bc-44cb-9c79-f000506fd47d",
+            "78599a04-eace-496e-b44a-1b8f3e0d1443",
             "protocol-mappers",
             "models",
-            "eaa9026d-eb5b-416e-9e3b-6931b3b7b593"
+            "28e81c1a-1e17-4964-ba8b-f4604f224ad7"
           ]
         }
       },
@@ -343,7 +375,7 @@
           }
         },
         "url": {
-          "raw": "http://localhost:9090/admin/realms/realm-sample/users/3bfa1626-871d-49ad-a3a3-acea5e421ab3/reset-password",
+          "raw": "http://localhost:9090/admin/realms/realm-sample/users/171aa8b9-9d1c-4c72-ab08-b29ee8cef6b0/reset-password",
           "protocol": "http",
           "host": [
             "localhost"
@@ -354,7 +386,7 @@
             "realms",
             "realm-sample",
             "users",
-            "3bfa1626-871d-49ad-a3a3-acea5e421ab3",
+            "171aa8b9-9d1c-4c72-ab08-b29ee8cef6b0",
             "reset-password"
           ]
         }
@@ -381,7 +413,7 @@
             },
             {
               "key": "client_secret",
-              "value": "nhj9BYjOQvcNTiPl8ruK7fwD3hfdfjcH",
+              "value": "mh7qvu7CloLkVJbR7DgxwPyrTc2zg0BO",
               "type": "default"
             },
             {
@@ -420,7 +452,7 @@
     "bearer": [
       {
         "key": "token",
-        "value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJuejBrMXJqS0RWRE5uZ0tGOXNyVlRaeWJNRXdpYWxlMHdnX01kRjRzaVFBIn0.eyJleHAiOjE2OTU4Mjc0NjksImlhdCI6MTY5NTgyMzk4OSwianRpIjoiYmQ3YTllNWEtZmVjMS00ZDU4LTg2OGItNTIzNGQ3ZmFkYTU0IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwL3JlYWxtcy9tYXN0ZXIiLCJzdWIiOiI4OTEwNDQ2My0xMjI0LTQ0NTktYTkxZS01NDZiM2I5YjhkYjIiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhZG1pbi1jbGkiLCJzZXNzaW9uX3N0YXRlIjoiMTI0MGNiODUtZDk1YS00ZDNiLWIwNTAtMmQ2MGUxNTYxYTBiIiwiYWNyIjoiMSIsInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6IjEyNDBjYjg1LWQ5NWEtNGQzYi1iMDUwLTJkNjBlMTU2MWEwYiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4ifQ.S1hO-FMMESAg8lmkvNpHUjSVj1rjmk9PN4ITY39ziW1JzVzxBDFeoBckbMgOWfL5ODp3Sjo3_08RY8Wu33gntqCdPKM8XTpyI5QRWEfQkov_Eyax3BFXypJj90hDVC4e-R1DcWq9ovb7e7t3qPgse0W_XPz3w-luSfds3_Z3HrqfDmqRIQKVFmC4qsalxjtX4K18HWBoqiCXx-kdSELw1ai4n_AuKLmQMj2tUv_GimIQD90VQxeQbbziAAT4UnNueCJyCTHmXdUkPHiNa5wxQUVO6yJh1kBiVjd2G1ARFSikQhRBqkEb0rsOzgob66LNTJfEJExQdm2dQQYXmgStaQ",
+        "value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJKQ3hIYmZDd1YyQ3FiMG80Ykd2S3lTR1VjZlNHTmlpNnpwS2x3a2FtZWhBIn0.eyJleHAiOjE2OTU5MzI1MTYsImlhdCI6MTY5NTkyOTAzNiwianRpIjoiZmFjZDI2ODYtMGY3MC00ZTFlLWE5NGMtMDE1ODc4OTE0NzQzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwL3JlYWxtcy9tYXN0ZXIiLCJzdWIiOiJmMzQyYWMxNS03ZDAwLTRiMmYtYjVkMy01Y2JmZTJiNmI3ZDQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhZG1pbi1jbGkiLCJzZXNzaW9uX3N0YXRlIjoiNjUzZGI4MWMtZWY1Yi00OTg3LWE2NDMtMjk4YTJmYjhmZjQzIiwiYWNyIjoiMSIsInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6IjY1M2RiODFjLWVmNWItNDk4Ny1hNjQzLTI5OGEyZmI4ZmY0MyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4ifQ.AcOn3tgCh6OMFcc5wm6MY8xdtaxcaEgpxnGYt8sQW213364ElNeqWznsmEPenbOAw7RwPv6uz_xI8gRyhdXuqOenDBXYI021j01_kK8g4blDgSIlXgLZfgyp3bxv-QdaOxoKFTTlLZCKqlKjX-zWN9LLDHOsnWIPMn313qCVy6lQUm2ICrEI5VF2Ir8jpnXNAgfNWdCvnhwy3fCythFCb0I5HZkgx_RMEkOd9jvWP3sL4yS0P-uTt_v4xVtPk7pp02SrXalagxiQVFACFsptFv0HKNtb-PLUDHEocetfb-BZCQM3C9JOE1a8lADaxp4BzKWsOZQI8LJ-pBvE9e2cYg",
         "type": "string"
       }
     ]
