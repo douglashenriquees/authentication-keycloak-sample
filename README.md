@@ -1,4 +1,4 @@
-# Running Container Keycloak
+## Running Container Keycloak
 
 * docker network create -d bridge auth-sample
 * docker run -p 9090:8080 --network=auth-sample --name keycloak-local -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:latest start-dev
@@ -7,7 +7,7 @@
   * realm settings
   * access token lifespan: 30 minutes
 
-# Creating the Project
+## Creating the Project
 
 * dotnet new gitignore
 * dotnet new web -o AuthKeyCloakSample --no-https true
