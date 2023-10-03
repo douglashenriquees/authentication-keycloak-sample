@@ -1,480 +1,654 @@
 {
-  "info": {
-    "_postman_id": "690b03c6-7bd6-4b60-8bfe-e6f9a531e505",
-    "name": "keycloak-sample",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "realm-master-token",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "urlencoded",
-          "urlencoded": [
-            {
-              "key": "client_id",
-              "value": "admin-cli",
-              "type": "default"
-            },
-            {
-              "key": "username",
-              "value": "admin",
-              "type": "default"
-            },
-            {
-              "key": "password",
-              "value": "admin",
-              "type": "default"
-            },
-            {
-              "key": "grant_type",
-              "value": "password",
-              "type": "default"
-            }
-          ]
-        },
-        "url": {
-          "raw": "http://localhost:9090/realms/master/protocol/openid-connect/token",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "9090",
-          "path": [
-            "realms",
-            "master",
-            "protocol",
-            "openid-connect",
-            "token"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "realm-master",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:9090/admin/realms/master",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "9090",
-          "path": [
-            "admin",
-            "realms",
-            "master"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "realm-sample",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"realm\": \"realm-sample\",\r\n    \"enabled\": true\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://localhost:9090/admin/realms",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "9090",
-          "path": [
-            "admin",
-            "realms"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "realm-sample",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:9090/admin/realms/realm-sample",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "9090",
-          "path": [
-            "admin",
-            "realms",
-            "realm-sample"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "realm-sample-client",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"protocol\": \"openid-connect\",\r\n    \"clientId\": \"client-sample-api\",\r\n    \"name\": \"\",\r\n    \"description\": \"\",\r\n    \"publicClient\": false,\r\n    \"authorizationServicesEnabled\": false,\r\n    \"serviceAccountsEnabled\": false,\r\n    \"implicitFlowEnabled\": false,\r\n    \"directAccessGrantsEnabled\": true,\r\n    \"standardFlowEnabled\": true,\r\n    \"frontchannelLogout\": true,\r\n    \"attributes\": {\r\n        \"saml_idp_initiated_sso_url_name\": \"\",\r\n        \"oauth2.device.authorization.grant.enabled\": false,\r\n        \"oidc.ciba.grant.enabled\": false\r\n    },\r\n    \"alwaysDisplayInConsole\": false,\r\n    \"rootUrl\": \"\",\r\n    \"baseUrl\": \"\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://localhost:9090/admin/realms/realm-sample/clients",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "9090",
-          "path": [
-            "admin",
-            "realms",
-            "realm-sample",
-            "clients"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "realm-sample-client",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:9090/admin/realms/realm-sample/clients/78599a04-eace-496e-b44a-1b8f3e0d1443",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "9090",
-          "path": [
-            "admin",
-            "realms",
-            "realm-sample",
-            "clients",
-            "78599a04-eace-496e-b44a-1b8f3e0d1443"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "realm-sample-client",
-      "request": {
-        "method": "PUT",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"protocol\": \"openid-connect\",\r\n    \"clientId\": \"client-sample-api\",\r\n    \"name\": \"\",\r\n    \"description\": \"\",\r\n    \"webOrigins\": [\r\n        \"/*\",\r\n        \"http://localhost:5203\"\r\n    ],\r\n    \"publicClient\": false,\r\n    \"authorizationServicesEnabled\": false,\r\n    \"serviceAccountsEnabled\": false,\r\n    \"implicitFlowEnabled\": false,\r\n    \"directAccessGrantsEnabled\": true,\r\n    \"standardFlowEnabled\": true,\r\n    \"frontchannelLogout\": true,\r\n    \"attributes\": {\r\n        \"saml_idp_initiated_sso_url_name\": \"\",\r\n        \"oauth2.device.authorization.grant.enabled\": false,\r\n        \"oidc.ciba.grant.enabled\": false\r\n    },\r\n    \"alwaysDisplayInConsole\": false,\r\n    \"rootUrl\": \"\",\r\n    \"baseUrl\": \"\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://localhost:9090/admin/realms/realm-sample/clients/78599a04-eace-496e-b44a-1b8f3e0d1443",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "9090",
-          "path": [
-            "admin",
-            "realms",
-            "realm-sample",
-            "clients",
-            "78599a04-eace-496e-b44a-1b8f3e0d1443"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "realm-sample-client-protocol-mapper",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "name": "Content-Type",
-            "type": "text",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"protocol\": \"openid-connect\",\n    \"protocolMapper\": \"oidc-audience-mapper\",\n    \"name\": \"realm-sample-client-scope-mapper\",\n    \"config\": {\n        \"included.client.audience\": \"\",\n        \"included.custom.audience\": \"\",\n        \"id.token.claim\": \"false\",\n        \"access.token.claim\": \"true\"\n    }\n}"
-        },
-        "url": {
-          "raw": "http://localhost:9090/admin/realms/realm-sample/clients/78599a04-eace-496e-b44a-1b8f3e0d1443/protocol-mappers/models",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "9090",
-          "path": [
-            "admin",
-            "realms",
-            "realm-sample",
-            "clients",
-            "78599a04-eace-496e-b44a-1b8f3e0d1443",
-            "protocol-mappers",
-            "models"
-          ]
-        },
-        "description": "Add client-level roles to the client’s scope"
-      },
-      "response": []
-    },
-    {
-      "name": "realm-sample-client-protocol-mapper",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:9090/admin/realms/realm-sample/clients/78599a04-eace-496e-b44a-1b8f3e0d1443/protocol-mappers/models",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "9090",
-          "path": [
-            "admin",
-            "realms",
-            "realm-sample",
-            "clients",
-            "78599a04-eace-496e-b44a-1b8f3e0d1443",
-            "protocol-mappers",
-            "models"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "realm-sample-client-scope-add",
-      "request": {
-        "method": "PUT",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n  \"id\": \"28e81c1a-1e17-4964-ba8b-f4604f224ad7\",\r\n  \"protocol\": \"openid-connect\",\r\n  \"protocolMapper\": \"oidc-audience-mapper\",\r\n  \"name\": \"realm-sample-client-scope-mapper\",\r\n  \"config\": {\r\n    \"included.client.audience\": \"client-sample-api\",\r\n    \"included.custom.audience\": \"\",\r\n    \"id.token.claim\": \"false\",\r\n    \"access.token.claim\": \"true\"\r\n  },\r\n  \"consentRequired\": false\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://localhost:9090/admin/realms/realm-sample/clients/78599a04-eace-496e-b44a-1b8f3e0d1443/protocol-mappers/models/28e81c1a-1e17-4964-ba8b-f4604f224ad7",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "9090",
-          "path": [
-            "admin",
-            "realms",
-            "realm-sample",
-            "clients",
-            "78599a04-eace-496e-b44a-1b8f3e0d1443",
-            "protocol-mappers",
-            "models",
-            "28e81c1a-1e17-4964-ba8b-f4604f224ad7"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "realm-sample-user",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"username\": \"65231901024\",\r\n    \"email\": \"john@email.com\",\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Decker\",\r\n    \"requiredActions\": [],\r\n    \"emailVerified\": true,\r\n    \"groups\": [],\r\n    \"attributes\": {\r\n        \"phone\": [\r\n            \"21995821190\"\r\n        ]\r\n    },\r\n    \"enabled\": true\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://localhost:9090/admin/realms/realm-sample/users",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "9090",
-          "path": [
-            "admin",
-            "realms",
-            "realm-sample",
-            "users"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "realm-sample-user",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:9090/admin/realms/realm-sample/users",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "9090",
-          "path": [
-            "admin",
-            "realms",
-            "realm-sample",
-            "users"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "realm-sample-user-set-password",
-      "request": {
-        "method": "PUT",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"temporary\": false,\r\n    \"type\": \"password\",\r\n    \"value\": \"79356368\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://localhost:9090/admin/realms/realm-sample/users/171aa8b9-9d1c-4c72-ab08-b29ee8cef6b0/reset-password",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "9090",
-          "path": [
-            "admin",
-            "realms",
-            "realm-sample",
-            "users",
-            "171aa8b9-9d1c-4c72-ab08-b29ee8cef6b0",
-            "reset-password"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "access-token",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "urlencoded",
-          "urlencoded": [
-            {
-              "key": "grant_type",
-              "value": "password",
-              "type": "default"
-            },
-            {
-              "key": "client_id",
-              "value": "client-sample-api",
-              "type": "default"
-            },
-            {
-              "key": "client_secret",
-              "value": "mh7qvu7CloLkVJbR7DgxwPyrTc2zg0BO",
-              "type": "default"
-            },
-            {
-              "key": "username",
-              "value": "65231901024",
-              "type": "default"
-            },
-            {
-              "key": "password",
-              "value": "79356368",
-              "type": "default"
-            }
-          ]
-        },
-        "url": {
-          "raw": "http://localhost:9090/realms/realm-sample/protocol/openid-connect/token",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "9090",
-          "path": [
-            "realms",
-            "realm-sample",
-            "protocol",
-            "openid-connect",
-            "token"
-          ]
-        }
-      },
-      "response": []
-    }
-  ],
-  "auth": {
-    "type": "bearer",
-    "bearer": [
-      {
-        "key": "token",
-        "value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJKQ3hIYmZDd1YyQ3FiMG80Ykd2S3lTR1VjZlNHTmlpNnpwS2x3a2FtZWhBIn0.eyJleHAiOjE2OTU5MzI1MTYsImlhdCI6MTY5NTkyOTAzNiwianRpIjoiZmFjZDI2ODYtMGY3MC00ZTFlLWE5NGMtMDE1ODc4OTE0NzQzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwL3JlYWxtcy9tYXN0ZXIiLCJzdWIiOiJmMzQyYWMxNS03ZDAwLTRiMmYtYjVkMy01Y2JmZTJiNmI3ZDQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhZG1pbi1jbGkiLCJzZXNzaW9uX3N0YXRlIjoiNjUzZGI4MWMtZWY1Yi00OTg3LWE2NDMtMjk4YTJmYjhmZjQzIiwiYWNyIjoiMSIsInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6IjY1M2RiODFjLWVmNWItNDk4Ny1hNjQzLTI5OGEyZmI4ZmY0MyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4ifQ.AcOn3tgCh6OMFcc5wm6MY8xdtaxcaEgpxnGYt8sQW213364ElNeqWznsmEPenbOAw7RwPv6uz_xI8gRyhdXuqOenDBXYI021j01_kK8g4blDgSIlXgLZfgyp3bxv-QdaOxoKFTTlLZCKqlKjX-zWN9LLDHOsnWIPMn313qCVy6lQUm2ICrEI5VF2Ir8jpnXNAgfNWdCvnhwy3fCythFCb0I5HZkgx_RMEkOd9jvWP3sL4yS0P-uTt_v4xVtPk7pp02SrXalagxiQVFACFsptFv0HKNtb-PLUDHEocetfb-BZCQM3C9JOE1a8lADaxp4BzKWsOZQI8LJ-pBvE9e2cYg",
-        "type": "string"
-      }
-    ]
-  },
-  "event": [
-    {
-      "listen": "prerequest",
-      "script": {
-        "type": "text/javascript",
-        "exec": [
-          ""
-        ]
-      }
-    },
-    {
-      "listen": "test",
-      "script": {
-        "type": "text/javascript",
-        "exec": [
-          ""
-        ]
-      }
-    }
-  ]
+	"info": {
+		"_postman_id": "a830148e-9c53-4162-a448-25b67b349689",
+		"name": "keycloak-sample",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "realm-master-token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "admin-cli",
+							"type": "default"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "default"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9090/realms/master/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"realms",
+						"master",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "realm-master",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/admin/realms/master",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"realms",
+						"master"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "realm-sample",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"realm\": \"realm-sample\",\r\n    \"enabled\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/admin/realms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"realms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "realm-sample",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/admin/realms/realm-sample",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"realms",
+						"realm-sample"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "realm-sample-assign-roles-find-default",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/admin/realms/realm-sample/roles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"realms",
+						"realm-sample",
+						"roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "realm-sample-assign-roles-find-manage-users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/admin/realms/realm-sample/ui-ext/available-roles/roles/452ca215-99fe-4336-bb61-91765935a35b?first=0&max=100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"realms",
+						"realm-sample",
+						"ui-ext",
+						"available-roles",
+						"roles",
+						"452ca215-99fe-4336-bb61-91765935a35b"
+					],
+					"query": [
+						{
+							"key": "first",
+							"value": "0"
+						},
+						{
+							"key": "max",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "realm-sample-assign-role-manage-users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": \"023087aa-e1fd-485c-b7b1-a47b64f7f35e\",\r\n        \"name\": \"manage-users\",\r\n        \"description\": \"${role_manage-users}\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/admin/realms/realm-sample/roles-by-id/452ca215-99fe-4336-bb61-91765935a35b/composites",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"realms",
+						"realm-sample",
+						"roles-by-id",
+						"452ca215-99fe-4336-bb61-91765935a35b",
+						"composites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "realm-sample-client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"protocol\": \"openid-connect\",\r\n    \"clientId\": \"client-sample-api\",\r\n    \"name\": \"\",\r\n    \"description\": \"\",\r\n    \"publicClient\": false,\r\n    \"authorizationServicesEnabled\": false,\r\n    \"serviceAccountsEnabled\": true,\r\n    \"implicitFlowEnabled\": false,\r\n    \"directAccessGrantsEnabled\": true,\r\n    \"standardFlowEnabled\": true,\r\n    \"frontchannelLogout\": true,\r\n    \"attributes\": {\r\n        \"saml_idp_initiated_sso_url_name\": \"\",\r\n        \"oauth2.device.authorization.grant.enabled\": false,\r\n        \"oidc.ciba.grant.enabled\": false\r\n    },\r\n    \"alwaysDisplayInConsole\": false,\r\n    \"rootUrl\": \"\",\r\n    \"baseUrl\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/admin/realms/realm-sample/clients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"realms",
+						"realm-sample",
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "realm-sample-client",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/admin/realms/realm-sample/clients/6018539d-7163-41a1-beb1-6a677195fe8f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"realms",
+						"realm-sample",
+						"clients",
+						"6018539d-7163-41a1-beb1-6a677195fe8f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "realm-sample-client",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"protocol\": \"openid-connect\",\r\n    \"clientId\": \"client-sample-api\",\r\n    \"name\": \"\",\r\n    \"description\": \"\",\r\n    \"webOrigins\": [\r\n        \"/*\",\r\n        \"http://localhost:5203\"\r\n    ],\r\n    \"publicClient\": false,\r\n    \"authorizationServicesEnabled\": false,\r\n    \"serviceAccountsEnabled\": true,\r\n    \"implicitFlowEnabled\": false,\r\n    \"directAccessGrantsEnabled\": true,\r\n    \"standardFlowEnabled\": true,\r\n    \"frontchannelLogout\": true,\r\n    \"attributes\": {\r\n        \"saml_idp_initiated_sso_url_name\": \"\",\r\n        \"oauth2.device.authorization.grant.enabled\": false,\r\n        \"oidc.ciba.grant.enabled\": false\r\n    },\r\n    \"alwaysDisplayInConsole\": false,\r\n    \"rootUrl\": \"\",\r\n    \"baseUrl\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/admin/realms/realm-sample/clients/6018539d-7163-41a1-beb1-6a677195fe8f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"realms",
+						"realm-sample",
+						"clients",
+						"6018539d-7163-41a1-beb1-6a677195fe8f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "realm-sample-client-protocol-mapper",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"protocol\": \"openid-connect\",\n    \"protocolMapper\": \"oidc-audience-mapper\",\n    \"name\": \"realm-sample-client-scope-mapper\",\n    \"config\": {\n        \"included.client.audience\": \"\",\n        \"included.custom.audience\": \"\",\n        \"id.token.claim\": \"false\",\n        \"access.token.claim\": \"true\"\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9090/admin/realms/realm-sample/clients/6018539d-7163-41a1-beb1-6a677195fe8f/protocol-mappers/models",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"realms",
+						"realm-sample",
+						"clients",
+						"6018539d-7163-41a1-beb1-6a677195fe8f",
+						"protocol-mappers",
+						"models"
+					]
+				},
+				"description": "Add client-level roles to the client’s scope"
+			},
+			"response": []
+		},
+		{
+			"name": "realm-sample-client-protocol-mapper",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/admin/realms/realm-sample/clients/6018539d-7163-41a1-beb1-6a677195fe8f/protocol-mappers/models",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"realms",
+						"realm-sample",
+						"clients",
+						"6018539d-7163-41a1-beb1-6a677195fe8f",
+						"protocol-mappers",
+						"models"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "realm-sample-client-scope-add",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"1de10464-0ec1-405c-aaba-b863cde6180e\",\r\n  \"protocol\": \"openid-connect\",\r\n  \"protocolMapper\": \"oidc-audience-mapper\",\r\n  \"name\": \"realm-sample-client-scope-mapper\",\r\n  \"config\": {\r\n    \"included.client.audience\": \"client-sample-api\",\r\n    \"included.custom.audience\": \"\",\r\n    \"id.token.claim\": \"false\",\r\n    \"access.token.claim\": \"true\"\r\n  },\r\n  \"consentRequired\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/admin/realms/realm-sample/clients/6018539d-7163-41a1-beb1-6a677195fe8f/protocol-mappers/models/1de10464-0ec1-405c-aaba-b863cde6180e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"realms",
+						"realm-sample",
+						"clients",
+						"6018539d-7163-41a1-beb1-6a677195fe8f",
+						"protocol-mappers",
+						"models",
+						"1de10464-0ec1-405c-aaba-b863cde6180e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "realm-sample-user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"65231901024\",\r\n    \"email\": \"john@email.com\",\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Decker\",\r\n    \"requiredActions\": [],\r\n    \"emailVerified\": true,\r\n    \"groups\": [],\r\n    \"attributes\": {\r\n        \"phone\": [\r\n            \"21995821190\"\r\n        ]\r\n    },\r\n    \"enabled\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/admin/realms/realm-sample/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"realms",
+						"realm-sample",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "realm-sample-user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/admin/realms/realm-sample/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"realms",
+						"realm-sample",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "realm-sample-user-set-password",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"temporary\": false,\r\n    \"type\": \"password\",\r\n    \"value\": \"79356368\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/admin/realms/realm-sample/users/0538ac70-499c-47c0-bba0-5459bee19c21/reset-password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"realms",
+						"realm-sample",
+						"users",
+						"0538ac70-499c-47c0-bba0-5459bee19c21",
+						"reset-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "access-token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "default"
+						},
+						{
+							"key": "client_id",
+							"value": "client-sample-api",
+							"type": "default"
+						},
+						{
+							"key": "client_secret",
+							"value": "x6Wimy5FRzS2Z1ksbSdjdS2X4J9UTfhS",
+							"type": "default"
+						},
+						{
+							"key": "username",
+							"value": "65231901024",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "79356368",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9090/realms/realm-sample/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"realms",
+						"realm-sample",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "access-token-client-credentials",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "default"
+						},
+						{
+							"key": "client_id",
+							"value": "client-sample-api",
+							"type": "default"
+						},
+						{
+							"key": "client_secret",
+							"value": "x6Wimy5FRzS2Z1ksbSdjdS2X4J9UTfhS",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9090/realms/realm-sample/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"realms",
+						"realm-sample",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "realm-sample-user-client_credentials",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJUUUlNcUpKdHRqdHRPT3NrcVVTbE5MclROUkgwaTFPYkNpTTRKeUx6NC04In0.eyJleHAiOjE2OTYzNDYxNzAsImlhdCI6MTY5NjM0NTg3MCwianRpIjoiMGQ1YmRlZDItOGZiZC00YTI1LWJjYTYtYzYxNmNiNTlhMmNhIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwL3JlYWxtcy9yZWFsbS1zYW1wbGUiLCJhdWQiOlsiY2xpZW50LXNhbXBsZS1hcGkiLCJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiIxMmFiMjFlZS00ZDRlLTQyMDItYTJkYy00NDE1YmQ5NDQzNWQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJjbGllbnQtc2FtcGxlLWFwaSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2xvY2FsaG9zdDo1MjAzIiwiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtcmVhbG0tc2FtcGxlIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7InJlYWxtLW1hbmFnZW1lbnQiOnsicm9sZXMiOlsibWFuYWdlLXVzZXJzIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJjbGllbnRIb3N0IjoiMTcyLjE5LjAuMSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LWNsaWVudC1zYW1wbGUtYXBpIiwiY2xpZW50QWRkcmVzcyI6IjE3Mi4xOS4wLjEiLCJjbGllbnRfaWQiOiJjbGllbnQtc2FtcGxlLWFwaSJ9.Yl4OcKncoYAuuQhD1yvZh63UYXl99-kKnF_PEcbFGMSDobmnjH6fD9k9PJ-hAqKv7rnrgVHFsDoqw49-ov0dMLpJ2Rd_t1oy_apcHtwaqXVuN799_uBmcS7uvMiu-yMfjG_EaXBY3hkDi-AYbDvAgk9_oIlTosgZQxED15klPp9peFFE7IuiUhlsrkTNsDiEwlwty8EyFfGSMlnqwWtt-XOqKq-XPXShGU7xFBXD1xY62gFVDzzltCsULZTXfjPJOUFtlJaEyfEm64z1cRw8P54GML8JCmXzTXdTOgTprhWrNt9yaK1A3ZRZy0XS995BNvgBowqbXu0w0G_0ZJSvoQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"09422677378\",\r\n    \"email\": \"ruan-mendes86@skyzepp.com\",\r\n    \"firstName\": \"Ruan\",\r\n    \"lastName\": \"Mendes\",\r\n    \"requiredActions\": [],\r\n    \"emailVerified\": true,\r\n    \"groups\": [],\r\n    \"attributes\": {\r\n        \"phone\": [\r\n            \"83981351086\"\r\n        ]\r\n    },\r\n    \"enabled\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/admin/realms/realm-sample/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"admin",
+						"realms",
+						"realm-sample",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJfZUZPQnFkdkxibDJmMEJ5RE1PZzRYT0hJdk5ZamhjUTZSTmtPUXpDTjdrIn0.eyJleHAiOjE2OTYzNDg5MjcsImlhdCI6MTY5NjM0NTQ0NywianRpIjoiZTNmZTljZDUtMWFmNC00ZWQ3LWFjMTktZTc4YmY2ODkyNjM5IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwL3JlYWxtcy9tYXN0ZXIiLCJzdWIiOiJiYjMzMzFlMy0zNjQ1LTRkMWQtYWNlMC00NmQwZDc4NTg5ZDMiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhZG1pbi1jbGkiLCJzZXNzaW9uX3N0YXRlIjoiOWIxNDFjZDMtNzNjMi00ZTcxLWJlMjEtZTBiN2EyMTE2MDZiIiwiYWNyIjoiMSIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjliMTQxY2QzLTczYzItNGU3MS1iZTIxLWUwYjdhMjExNjA2YiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4ifQ.FlrXlbPem7IyDxc3xlFPQghW6cFfz1TfplPyE9z1C6rkcavlBTgv0Ru6QjOuAZCO5evvt7hidPpnpqBtDPYlTIAuxiZAPFFTa_3FbrhUyrjDaSmF8FqZ2soADnOrLkQtvSZL61RGCB5Rvq_At0RKU2bBK4YNEKUEa816D-By9aXuhVKrJzr6AjLcJ4J5dugWAuecgbmBYnuR00e6DMt4yle-YwzHgFBn4UhBgBHhDtWv07ksFrSeWL6MGatECemj8wXjlUBgaLNNd3mh7nb01XCxT8T9vufPT0InE1RdwHLzwnEM9gaZm8ytym5bZVqsu4M0WAnsKN8sgS_aX59jtQ",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
 }
